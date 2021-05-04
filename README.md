@@ -1,4 +1,4 @@
-# -Watermine-aka-cat-scare
+# "Watermine" aka cat scare
 A small Arduino controlled water pump which reacts to motion.
 
 ### List of parts (amazon germany):
@@ -7,3 +7,6 @@ A small Arduino controlled water pump which reacts to motion.
 * [microcontroller](https://www.amazon.de/gp/product/B078SBBST6/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
 * [water pump](https://www.amazon.de/gp/product/B001CV02U4/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&psc=1)
 * [ultrasonic sensor](https://www.amazon.de/gp/product/B072N473HD/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1)
+
+### wiring diagram:
+![wiring diagram](https://i.ibb.co/xG7wXBB/cate-mine.png)
