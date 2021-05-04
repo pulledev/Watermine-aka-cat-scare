@@ -2,8 +2,8 @@
 #define PIN_ECHO    2
 #define PIN_MOTOR 3
 #define PIN_BUTTON 4
-#define PIN_LED 5
-const int SENSOR_MAX_RANGE = 300; // in cm
+#define PIN_LED 5// disarmed: led is on
+const int SENSOR_MAX_RANGE = 300; // max senor range in cm
 unsigned long duration;
 unsigned int distance;
 int wert;
@@ -17,6 +17,7 @@ void setup(){
   pinMode(PIN_MOTOR, OUTPUT);
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_BUTTON, INPUT_PULLUP);
+  Serial.println("#### (c) Paul Treier 2021 ####"
 }
 
 void loop(){
@@ -29,14 +30,15 @@ void loop(){
   duration = pulseIn(PIN_ECHO, HIGH);
   distance = duration/58;
 
-  if (distance > SENSOR_MAX_RANGE || distance <= 0){
-    Serial.println("Out of sensor range!");
+  if (distance > SENSOR_MAX_RANGE || distance <= 0){//debug with serial monitor
+    Serial.println("Sensor range!");
   } else {
     Serial.println("Distance to object: " + String(distance) + " cm");
   }
 
-  taster = digitalRead(PIN_BUTTON);
-  if(tasterstate==0){
+  taster = digitalRead(PIN_BUTTON);//check if button is pressed
+  
+  if(tasterstate==0){//killswitch
     if(taster==0){
       digitalWrite(PIN_LED,1);
       delay(1000);
@@ -55,9 +57,9 @@ void loop(){
      }
   }
   
-  if(killswitch==1){//taster könnte andere Zahl haben
+  if(killswitch==1){//check if mine is disarmed
     
-    if (distance<100){//distanz überprüfen!!
+    if (distance<100){//check distance
 
       digitalWrite(PIN_MOTOR,1);
       delay(4000);
